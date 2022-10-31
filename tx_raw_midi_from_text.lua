@@ -34,21 +34,19 @@ function factory () return function ()
 
 	if not rv then return end -- user cancelled
 
-    --convert string to byte array	
+    	--convert string to byte array	
 	pbuf = "" 
 	i = 0
 	for s in string.gmatch(rv["syxstring"],"%S+") do
-        pbuf = pbuf .. string.char(tonumber(s, 16))
+        	pbuf = pbuf .. string.char(tonumber(s, 16))
 	end
     
 	if rv["autoinc"] then
 		--test first and last bytes for 0xF0 and 0xF7	
-        if ((string.byte(pbuf,1)) ~= 0xF0) and (string.byte(pbuf, #pbuf) ~= 0xF7) then
+        	if ((string.byte(pbuf,1)) ~= 0xF0) and (string.byte(pbuf, #pbuf) ~= 0xF7) then
 			pbuf =  string.char(0xf0) .. pbuf .. string.char(0xf7)
 		end
-	
 	end
-
 	
 	do -- scope for 'local'
 		local midi_byte_count = 0
@@ -74,11 +72,9 @@ function factory () return function ()
 					-- Every message is sent as 10bit message on the wire,
 					-- so every MIDI byte needs 320usec.
 					ARDOUR.LuaAPI.usleep (400 * parser:buffer_size ())
-			
 				end
 				if pdialog:canceled () then break end
 	    end
-		
 
 		-- hide modal progress dialog and destroy it
 		pdialog:done ();
