@@ -37,9 +37,9 @@ function factory () return function ()
 	if (string.len(rv["syxstring"]) > 256) then
 		LuaDialog.Message ("Raw MIDI Tx", "Only supports sending up to a 256 byte message. Use a SYX file instead for longer messages.", LuaDialog.MessageType.Error, LuaDialog.ButtonType.Close):run ()
 		goto out
-    end		
+    	end		
 
-    --convert string to byte array	
+   	 --convert string to byte array	
 	syx = "" 
 	i = 0
 	for s in string.gmatch(rv["syxstring"],"%S+") do
