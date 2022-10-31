@@ -43,10 +43,9 @@ function factory () return function ()
     
 	if rv["autoinc"] then
 		--test first and last bytes for 0xF0 and 0xF7	
-        if ((string.byte(pbuf,1)) ~= 0xF0) and (string.byte(pbuf, #pbuf) ~= 0xF7) then
+       	 	if ((string.byte(pbuf,1)) ~= 0xF0) and (string.byte(pbuf, #pbuf) ~= 0xF7) then
 			pbuf =  string.char(0xf0) .. pbuf .. string.char(0xf7)
 		end
-	
 	end
 
 	
