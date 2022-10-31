@@ -3,7 +3,7 @@ ardour {
 	name        = "Send Raw MIDI from Text Field",
 	license     = "MIT",
 	author      = "sollapse",
-	description = [[Read raw SysEx MIDI message from a text field and send it to a MIDI port (modification of Ardour Team's tx_raw_midi_from_file.lua).]]
+	description = [[Read raw SysEx MIDI message from a text field and send it to a MIDI port (modification of Ardour Team's tx_raw_midi_from_file.lua)]]
 }
 
 function factory () return function ()
@@ -24,7 +24,7 @@ function factory () return function ()
 
 	local dialog_options = {
 		{ type = "checkbox", key = "autoinc", default = false, title = "Add F0 and F7 bytes?" },
-		{ type = "entry", key = "syxstring", title = "Enter SysEx bytes: " },
+		{ type = "entry", key = "syxstring", title = "Enter SysEx bytes (up to 256B)" },
 		{ type = "dropdown", key = "port", title = "Target Port", values = portlist () }
 	}
 
@@ -34,6 +34,11 @@ function factory () return function ()
 
 	if not rv then return end -- user cancelled
 
+	if (string.len(rv["syxstring"]) > 256) then
+		LuaDialog.Message ("Raw MIDI Tx", "Only supports sending up to a 256 byte message. Use a SYX file instead for longer messages.", LuaDialog.MessageType.Error, LuaDialog.ButtonType.Close):run ()
+		goto out
+    	end		
+
     	--convert string to byte array	
 	syx = "" 
 	i = 0
@@ -41,9 +46,14 @@ function factory () return function ()
     		syx = syx .. string.char(tonumber(s, 16))
 	end
     
+	if (#syx > 255) then
+		LuaDialog.Message ("Raw MIDI Tx", "Only supports sending a 256 byte message. Use syx file instead for longer messages.", LuaDialog.MessageType.Error, LuaDialog.ButtonType.Close):run ()
+		goto out
+    	end		
+		
 	if rv["autoinc"] then
 		--test first and last bytes for 0xF0 and 0xF7	
-       	 	if ((string.byte(syx,1)) ~= 0xF0) and (string.byte(syx, #syx) ~= 0xF7) then
+       	if ((string.byte(syx, 1)) ~= 0xF0) and (string.byte(syx, #syx) ~= 0xF7) then
 			syx =  string.char(0xf0) .. syx .. string.char(0xf7)
 		end
 	end
@@ -65,7 +75,7 @@ function factory () return function ()
 					-- so every MIDI byte needs 320usec.
 					ARDOUR.LuaAPI.usleep (400 * parser:buffer_size ())
 				end
-	    	end
+	    end
 
 	end
 	::out::
