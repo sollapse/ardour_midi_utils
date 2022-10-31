@@ -2,8 +2,8 @@ ardour {
 	["type"]    = "EditorAction",
 	name        = "Send Raw MIDI from Text Field",
 	license     = "MIT",
-	author      = "Ardour Team",
-	description = [[Read raw SysEx MIDI message from a text field and send it to a MIDI port]]
+	author      = "sollapse",
+	description = [[Read raw SysEx MIDI message from a text field and send it to a MIDI port (modification of Ardour Team's tx_raw_midi_from_file.lua).]]
 }
 
 function factory () return function ()
