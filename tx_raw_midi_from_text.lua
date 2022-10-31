@@ -24,7 +24,7 @@ function factory () return function ()
 
 	local dialog_options = {
 		{ type = "checkbox", key = "autoinc", default = false, title = "Add F0 and F7 bytes?" },
-		{ type = "entry", key = "syxstring", title = "Enter SysEx bytes" },
+		{ type = "entry", key = "syxstring", title = "Enter SysEx bytes: " },
 		{ type = "dropdown", key = "port", title = "Target Port", values = portlist () }
 	}
 
@@ -35,16 +35,16 @@ function factory () return function ()
 	if not rv then return end -- user cancelled
 
     	--convert string to byte array	
-	pbuf = "" 
+	syx = "" 
 	i = 0
 	for s in string.gmatch(rv["syxstring"],"%S+") do
-    		pbuf = pbuf .. string.char(tonumber(s, 16))
+    		syx = syx .. string.char(tonumber(s, 16))
 	end
     
 	if rv["autoinc"] then
 		--test first and last bytes for 0xF0 and 0xF7	
-       	 	if ((string.byte(pbuf,1)) ~= 0xF0) and (string.byte(pbuf, #pbuf) ~= 0xF7) then
-			pbuf =  string.char(0xf0) .. pbuf .. string.char(0xf7)
+       	 	if ((string.byte(syx,1)) ~= 0xF0) and (string.byte(syx, #syx) ~= 0xF7) then
+			syx =  string.char(0xf0) .. syx .. string.char(0xf7)
 		end
 	end
 
@@ -54,8 +54,8 @@ function factory () return function ()
 		local parser = ARDOUR.RawMidiParser () -- construct a MIDI parser
 			
 		-- parse MIDI data byte-by-byte
-		for i = 1, #pbuf do
-				if parser:process_byte (string.byte(pbuf,i)) then
+		for i = 1, #syx do
+				if parser:process_byte (string.byte(syx,i)) then
 					
 					-- parsed complete normalized MIDI message, send it
 					async_midi_port:write (parser:midi_buffer (), parser:buffer_size (), 0)
