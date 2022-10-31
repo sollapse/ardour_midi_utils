@@ -34,11 +34,11 @@ function factory () return function ()
 
 	if not rv then return end -- user cancelled
 
-    --convert string to byte array	
+    	--convert string to byte array	
 	pbuf = "" 
 	i = 0
 	for s in string.gmatch(rv["syxstring"],"%S+") do
-    	pbuf = pbuf .. string.char(tonumber(s, 16))
+    		pbuf = pbuf .. string.char(tonumber(s, 16))
 	end
     
 	if rv["autoinc"] then
@@ -65,9 +65,8 @@ function factory () return function ()
 					-- Every message is sent as 10bit message on the wire,
 					-- so every MIDI byte needs 320usec.
 					ARDOUR.LuaAPI.usleep (400 * parser:buffer_size ())
-	
 				end
-	    end
+	    	end
 
 	end
 	::out::
