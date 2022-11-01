@@ -41,7 +41,6 @@ function factory () return function ()
 
    	 --convert string to byte array	
 	syx = "" 
-	i = 0
 	for s in string.gmatch(rv["syxstring"],"%S+") do
     		syx = syx .. string.char(tonumber(s, 16))
 	end
@@ -49,7 +48,7 @@ function factory () return function ()
 			
 	if rv["autoinc"] then
 		--test first and last bytes for 0xF0 and 0xF7	
-       	if ((string.byte(syx, 1)) ~= 0xF0) and (string.byte(syx, #syx) ~= 0xF7) then
+       		if ((string.byte(syx, 1)) ~= 0xF0) and (string.byte(syx, #syx) ~= 0xF7) then
 			syx =  string.char(0xf0) .. syx .. string.char(0xf7)
 		end
 	end
@@ -61,17 +60,17 @@ function factory () return function ()
 			
 		-- parse MIDI data byte-by-byte
 		for i = 1, #syx do
-				if parser:process_byte (string.byte(syx,i)) then
+			if parser:process_byte (string.byte(syx,i)) then
 					
-					-- parsed complete normalized MIDI message, send it
-					async_midi_port:write (parser:midi_buffer (), parser:buffer_size (), 0)
+				-- parsed complete normalized MIDI message, send it
+				async_midi_port:write (parser:midi_buffer (), parser:buffer_size (), 0)
 
-					-- Physical MIDI is sent at 31.25kBaud.
-					-- Every message is sent as 10bit message on the wire,
-					-- so every MIDI byte needs 320usec.
-					ARDOUR.LuaAPI.usleep (400 * parser:buffer_size ())
-				end
-	    end
+				-- Physical MIDI is sent at 31.25kBaud.
+				-- Every message is sent as 10bit message on the wire,
+				-- so every MIDI byte needs 320usec.
+				ARDOUR.LuaAPI.usleep (400 * parser:buffer_size ())
+			end
+	    	end
 
 	end
 	::out::
