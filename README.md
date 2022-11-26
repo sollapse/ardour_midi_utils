@@ -12,3 +12,6 @@ The mpk2_autofdbk hook script will check for selected MIDI tracks tagged with a 
 Multiple selections are allowed for tracks with the same bank. 
 
 Feedback is set if main feedback track is tagged with [PLAY].
+
+###Send SysEx from Text Field
+Utility script to send short SysEx messages up to 256 bytes from a text field. Device must be connected to one of Ardour's async MIDI ports (ie...MIDI Control Out).
