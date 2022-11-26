@@ -110,6 +110,7 @@ function factory ()
 	getModel()
 
 	--write values to cfg file
+	io.output(cfgfile)
 	cfgvars = mpk2_out .. ",".. mpk2_model .. "," .. mpk2_padchn .. "," .. padfdbk_name 
 	cfgfile:seek("set", 0)
 	io.write(cfgvars .. "\n")
