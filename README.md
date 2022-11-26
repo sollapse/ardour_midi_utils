@@ -7,11 +7,11 @@ Add both the mpk2_config.lua and mpk2_autofdbk.lua scripts to your session.
 Run the MPK2 Config action script to set your device and feedback track settings. 
 
 The mpk2_autofdbk hook script will check for selected MIDI tracks tagged with a bank letter 
-(ie..[BANK A] or [BankB]) and switch the MPK2's bank, along with providing visual feedback to the pads. 
+(ex: [BANK A] or [BankC]) and switch the MPK2's bank, along with providing visual feedback to the pads. 
 
 Multiple selections are allowed for tracks with the same bank. 
 
 Feedback is set if main feedback track is tagged with [PLAY].
 
 ### Send SysEx from Text Field
-Utility script to send short SysEx messages up to 256 bytes from a text field. Device must be connected to one of Ardour's async MIDI ports (ie...MIDI Control Out).
+Utility script to send short SysEx messages up to 256 bytes from a text field. Device must be connected to one of Ardour's async MIDI ports (ex: MIDI Control Out).
