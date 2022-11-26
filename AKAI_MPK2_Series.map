@@ -5,7 +5,7 @@
 
 
 <!--MuteMaps (for MuteMap preset only)-->
-<!--First 8 pads set to notes 0-8 in toggle mode on channel 16. 
+<!--First 8 pads set to notes 0-8 (C_-1 to G_-1) in toggle mode on channel 16. 
     Ardour provides feedback for mute automation if MIDI Control Out is set to MPK2 device.-->
 <Binding channel="16" note="0" uri="/route/mute B1" momentary="yes"/>
 <Binding channel="16" note="1" uri="/route/mute B2" momentary="yes"/>
