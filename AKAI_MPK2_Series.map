@@ -18,17 +18,17 @@
 
 <!--for Ardour & MuteMap presets-->
 <!--Bank Controls-->
-<!--S1 and S2 switches set to CC mode and momentary on MPK2 with following CC assignments-->
+<!--S1 and S2 switches set to CC and momentary mode on MPK2 with following CC assignments-->
 <Binding channel="16" ctl="102" function="prev-bank"/>
 <Binding channel="16" ctl="103" function="next-bank"/>
 
 <!--Route Select-->
-<!--S3 and S4 switches set to CC mode and momentary on MPK2 with following CC assignments-->
+<!--S3 and S4 switches set to CC and momentary mode on MPK2 with following CC assignments-->
 <Binding channel="16" ctl="104" action="Editor/select-prev-route"/>
 <Binding channel="16" ctl="105" action="Editor/select-next-route"/>
 
 <!-- Transport -->
-<!--Transport set to MIDI CC mode, CC parameters are set by default in MPK2 for respective buttons-->
+<!--Transport set to MIDI CC mode, CC parameters are set by MPK2-->
 <Binding channel="1" ctl="114" action="Transport/Loop"/>
 <Binding channel="1" ctl="115" action="Transport/Rewind"/>
 <Binding channel="1" ctl="116" action="Transport/Forward"/>
