@@ -14,7 +14,7 @@ Multiple selections are allowed for tracks with the same bank.
 
 Feedback is set if main feedback track is tagged with [PLAY].
 
-MPK2 SysEx information obtained from [Nick Smith](https://github.com/nsmith-/mpk2/blob/master/README.md)
+MPK2 SysEx information obtained from [Nick Smith](https://github.com/nsmith-/mpk2/)
 
 ### Send SysEx from Text Field
 Utility script to send short SysEx messages up to 256 bytes from a text field. Device must be connected to one of Ardour's async MIDI ports (ex: MIDI Control Out).
