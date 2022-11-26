@@ -130,7 +130,6 @@ function factory ()
 			padfdbk:front():set_comment("[PLAY]", nil)
 			padfdbk:front():set_capture_channel_mode(ARDOUR.ChannelMode.ForceChannel, 1 << tonumber(string.format("%x", tonumber(mpk2_padchn) - 1), 16))
 			padfdbk:front():output():midi(0):connect(mpk2_out)
-			
 		end
 	end
 	tv = Editor:rtav_from_route(Session:route_by_name(padfdbk_name)):to_timeaxisview()
