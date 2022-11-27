@@ -69,7 +69,6 @@ function factory ()
 	else
 		--create file
 		cfgfile = io.open(cfgname, "w+")
-		io.output(cfgfile)	
 		allvars = false
 	end
  	
