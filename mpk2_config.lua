@@ -135,8 +135,18 @@ function factory()
 
         -- populate vars
         mpk2_out = rv["port"]
-        mpk2_padchn = rv["padchn"]
-        padfdbk_name = rv["fdbktrack"]
+        
+	if not tonumber(rv["padchn"]) >= 1 or not tonumber(rv["padchn"]) <= 16 then
+            LuaDialog.Message("MPK2 Auto Feedback Config",
+                "Pad feedback channel must be a within 1-16. Setting to channel 10 default.",
+                LuaDialog.MessageType.Error, LuaDialog.ButtonType.Close):run()
+            -- set default pad to 10
+            mpk2_padchn = "10"
+        else
+            mpk2_padchn = rv["padchn"]
+        end
+        
+	padfdbk_name = rv["fdbktrack"]
 
         -- find MPK2 model code from device name
         getModel()
