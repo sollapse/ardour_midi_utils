@@ -155,9 +155,9 @@ function factory()
             mt = Session:new_midi_track(ARDOUR.ChanCount(ARDOUR.DataType("midi"), 1),
                 ARDOUR.ChanCount(ARDOUR.DataType("midi"), 1), true, ARDOUR.PluginInfo(), nil, nil, 1, padfdbk_name,
                 ARDOUR.PresentationInfo.max_order, ARDOUR.TrackMode.Normal, false)
-			padfdbk = mt:front()
-		else 
-			padfdbk = t:to_track():to_midi_track()
+	    padfdbk = mt:front()
+	else 
+	    padfdbk = t:to_track():to_midi_track()
         end
 
         -- configure feedback track
