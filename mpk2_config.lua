@@ -152,25 +152,29 @@ function factory()
         t = Session:route_by_name(padfdbk_name)
         if t:isnil() then
             -- create new feedback track
-            padfdbk = Session:new_midi_track(ARDOUR.ChanCount(ARDOUR.DataType("midi"), 1),
+            mt = Session:new_midi_track(ARDOUR.ChanCount(ARDOUR.DataType("midi"), 1),
                 ARDOUR.ChanCount(ARDOUR.DataType("midi"), 1), true, ARDOUR.PluginInfo(), nil, nil, 1, padfdbk_name,
                 ARDOUR.PresentationInfo.max_order, ARDOUR.TrackMode.Normal, false)
-
-            if not padfdbk:front():isnil() then
-                padfdbk:front():set_comment("[PLAY]", nil)
-                padfdbk:front():set_capture_channel_mode(ARDOUR.ChannelMode.ForceChannel, 1 <<
-                    tonumber(string.format("%x", tonumber(mpk2_padchn) - 1), 16))
-                padfdbk:front():output():midi(0):connect(mpk2_out)
-            end
+			padfdbk = mt:front()
+		else 
+			padfdbk = t:to_track():to_midi_track()
         end
 
+        -- configure feedback track
+        if not padfdbk:isnil() then
+            padfdbk:set_comment("[PLAY]", nil)
+            padfdbk:set_capture_channel_mode(ARDOUR.ChannelMode.ForceChannel,
+                1 << tonumber(string.format("%x", tonumber(mpk2_padchn) - 1), 16))
+            padfdbk:output():midi(0):connect(mpk2_out)
+        end
+        
+        --set feedback track visibility
         tv = Editor:rtav_from_route(Session:route_by_name(padfdbk_name)):to_timeaxisview()
         if rv["hidetrack"] then
             Editor:hide_track_in_display(tv, true)
         else
             Editor:show_track_in_display(tv, true)
         end
-
     end
 end
 
