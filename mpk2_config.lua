@@ -138,7 +138,7 @@ function factory()
         
 	if not tonumber(rv["padchn"]) >= 1 or not tonumber(rv["padchn"]) <= 16 then
             LuaDialog.Message("MPK2 Auto Feedback Config",
-                "Pad feedback channel must be a within 1-16. Setting to channel 10 default.",
+                "Pad feedback channel must be within 1-16. Setting to channel 10 default.",
                 LuaDialog.MessageType.Error, LuaDialog.ButtonType.Close):run()
             -- set default pad to 10
             mpk2_padchn = "10"
