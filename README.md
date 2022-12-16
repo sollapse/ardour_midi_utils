@@ -12,7 +12,7 @@ with providing visual feedback to the pads.
 
 Multiple selections are allowed for tracks with the same bank. 
 
-Feedback is set if main feedback track is tagged with [PLAY].
+Feedback is active if track is tagged with [PLAY].
 
 MPK2 SysEx information obtained from [Nick Smith](https://github.com/nsmith-/mpk2/)
 
