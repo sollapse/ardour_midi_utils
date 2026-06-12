@@ -21,6 +21,7 @@ Utility script to send short SysEx messages up to 256 bytes from a text field. D
 
 ### MIDI CC Map Editor & MIDI CC Router
 An editor plugin which works in conjunction with a DSP script to manually map CC controllers to automation parameters. Run the editor script after selecting the track or bus with the desired parameters. Then add the DSP plugin on a MIDI track or bus that receives the control data. 
+
 *These scripts were generated via AI using Claude Sonnet 4.6 & Opus 4.8 with Github Copilot*
 
 ### VU Meter (by ZenoMOD)
