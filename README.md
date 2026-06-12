@@ -20,11 +20,15 @@ MPK2 SysEx information obtained from [Nick Smith](https://github.com/nsmith-/mpk
 Utility script to send short SysEx messages up to 256 bytes from a text field. Device must be connected to one of Ardour's async MIDI ports (ex: MIDI Control Out).
 
 ### MIDI CC Map Editor & MIDI CC Router
-An editor plugin which works in conjunction with a DSP script to manually map CC controllers to automation parameters. Run the editor script after selecting the track or bus with the desired parameters. Then add the DSP plugin on a MIDI track or bus that receives the control data. *These scripts were generated via AI using Claude Sonnet 4.6 & Opus 4.8 with Github Copilot*
+An editor plugin which works in conjunction with a DSP script to manually map CC controllers to automation parameters. Run the editor script after selecting the track or bus with the desired parameters. Then add the DSP plugin on a MIDI track or bus that receives the control data. 
+*These scripts were generated via AI using Claude Sonnet 4.6 & Opus 4.8 with Github Copilot*
 
 ### VU Meter (by ZenoMOD)
-<img width="280" height="280" alt="image" src="https://github.com/user-attachments/assets/77e1d1ad-87fc-4177-8e26-a7cf6bae7f1c" />
+<img width="160" height="160" alt="image" src="https://github.com/user-attachments/assets/77e1d1ad-87fc-4177-8e26-a7cf6bae7f1c" />
+
 Port of the ZenoMOD VU Meter for JSFX to Ardour Lua. Uses inline display for meter graphics. Includes original themes.
-*This port was generated via AI using DeepSeek v4 Pro and Claude Opus 4.8
+
+*This port was generated via AI using DeepSeek v4 Pro and Claude Opus 4.8*
+
 Original JSFX:
 https://github.com/ReaTeam/JSFX/blob/master/Utility/zenomod_VU%20Meter%20(ZenoMOD).jsfx
