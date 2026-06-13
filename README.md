@@ -25,7 +25,8 @@ An editor plugin which works in conjunction with a DSP script to manually map CC
 *These scripts were generated via AI using Claude Sonnet 4.6 & Opus 4.8 with Github Copilot*
 
 ### VU Meter (by ZenoMOD)
-<img width="160" height="160" alt="image" src="https://github.com/user-attachments/assets/d005ca18-fa8a-418d-8f21-f138e60effe7" />
+<img width="160" height="160" alt="image" src="https://github.com/user-attachments/assets/e53fde7f-06b2-4d68-b70b-52b74e730f0e" />
+
 
 
 Port of the ZenoMOD VU Meter for JSFX to Ardour Lua. Uses inline display for meter graphics. Includes original themes.
