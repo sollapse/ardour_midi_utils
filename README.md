@@ -30,6 +30,7 @@ An editor plugin which works in conjunction with a DSP script to manually map CC
 
 
 Port of the ZenoMOD VU Meter for JSFX to Ardour Lua. Uses inline display for meter graphics. Includes original themes.
+Supports Mono, L/R|M/S and summed metering.
 
 *This port was generated via AI using DeepSeek v4 Pro and Claude Opus 4.8*
 
