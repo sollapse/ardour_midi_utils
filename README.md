@@ -19,6 +19,11 @@ MPK2 SysEx information obtained from [Nick Smith](https://github.com/nsmith-/mpk
 ### Send SysEx from Text Field
 Utility script to send short SysEx messages up to 256 bytes from a text field. Device must be connected to one of Ardour's async MIDI ports (ex: MIDI Control Out).
 
+### MIDI CC Map Editor & MIDI CC Router
+An editor plugin which works in conjunction with a DSP script to manually map CC controllers to automation parameters. Run the editor script after selecting the track or bus with the desired parameters. Then add the DSP plugin on a MIDI track or bus that receives the control data. 
+
+*These scripts were generated via AI using Claude Sonnet 4.6 & Opus 4.8 with Github Copilot*
+
 ### VU Meter (by ZenoMOD)
 <img width="160" height="160" alt="image" src="https://github.com/user-attachments/assets/e53fde7f-06b2-4d68-b70b-52b74e730f0e" />
 
